@@ -31,6 +31,12 @@ def show_graph(adjacency_matrix):
 def find_degree(adjacency_matrix, i):
     return sum(adjacency_matrix[i])
 
+def find_max_degree(adjacency_matrix):
+    n = adjacency_matrix.shape[0]
+    vertices = list(range(0,n))
+    degrees = map(lambda i: find_degree(adjacency_matrix, i), vertices)
+    return max(degrees)
+
 def is_connected(adjacency_matrix):
     mu, phi = eigen(adjacency_matrix)
     mu.sort()
